@@ -5,11 +5,14 @@ gg  move to first line
 G   move to last line
 nG  move to n'th line of file (where n is a number) 
 
-Vim has configration file named .vimrc .This file contains all the startup configrations of vim editor. you can make custom thoeo configrations for your vim editor.
-An image of my .vimrc file is also attacked with it 
+Vim has configration file named .vimrc .This file contains all the startup configrations of vim editor. you can make custome configrations for your vim editor.
+An image of my .vimrc file is also attached in "DOTfile".
 
 
 ACTIVITY#3
- Done with aliases of commands in .zshrc file . also used that aliases to push on GIT.
-an image of my .zshrc file is also attacked with it
+ Done with aliases  in .zshrc file . also used that aliases for practice.
+An image of my .vimrc file is also attached in "DOTfile".
 
+ACTIVITY#4
+
+Everything Uploaded on GIT .
