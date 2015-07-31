@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        int numberOfTest,value1,sum,count=0;
+        string[] list; 
+  
+        string temp1Str,temp;
+        
+        temp=Console.ReadLine();
+        numberOfTest=Convert.ToInt32(temp);
+        
+      // Console.WriteLine(numberOfTest);
+        
+        list = new string[numberOfTest];
+        for(int i=0;i<numberOfTest;i++)
+         {
+            list[i]=Console.ReadLine();
+           // Console.WriteLine(list[i]);
+            
+        } 
+        int[,] countStr1=new int[numberOfTest,26];
+        for(int j=0;j<numberOfTest;j++)
+                {    
+                    for(int k=0;k<26;k++)
+                        {
+                          countStr1[j,k]=0;     
+                        }
+                }
+     
+    
+        for(int i=0;i<numberOfTest;i++)
+        {
+           
+            temp1Str=list[i];
+            // Console.WriteLine("input string : "+temp1Str);   
+            //Console.WriteLine("i value :"+i+" temp1 :value"+temp1 +temp1Str+" temp2 :value "+temp2+temp2Str);
+           
+            for(int j=0;j<temp1Str.Length;j++)
+                {      
+                        //Console.WriteLine(System.Convert.ToInt32(temp1Str[j])-97);   
+                        value1=System.Convert.ToInt32(temp1Str[j])-97;
+                        countStr1[i,value1]++;     
+                } 
+               
+        }
+        
+        for(int j=0;j<26;j++)
+                {          
+                sum=numberOfTest;
+                for(int k=0;k<numberOfTest;k++)
+                {     
+                    if(countStr1[k,j]>0)
+                        {
+                             sum--;                       
+                        }
+                }
+                if(sum==0)
+                    {
+                    count++;
+                    
+                    } 
+                }
+        
+        Console.WriteLine(count);   
+        
+        
+        
+    }
+}

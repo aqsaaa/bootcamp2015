@@ -1,0 +1,66 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+class Solution {
+    function checkCommonString($temp1Str) {
+       // echo  $temp1Str ;
+      $status=false;
+      $countStr1=array();   
+    
+      for($j=0;$j<26;$j++)
+        {        
+          $countStr1[$j]=0;                       
+        }
+
+     for($j=0;$j<strlen($temp1Str);)
+       {     
+         if(ord($temp1Str[$j])==32)
+            {
+                $j++;
+            }
+            else
+            {
+                //echo ord($temp1Str[$j]);
+            $countStr1[ord($temp1Str[$j])-65]++;  
+                $j++; 
+            }
+     }   
+
+        for($j=0;$j<26;$j++)
+          {                      
+
+         if ($countStr1[$j]==0)
+             {
+               $status=true;
+                break;
+             }
+          }
+        
+          if($status==true)
+                {
+                 echo  "not pangram";     
+                }
+            else
+               {
+                echo  "pangram";  
+               }    
+
+  
+    }
+    
+    
+} 
+
+      $status=false;
+      $temp1Str;
+      $s= new Solution();       
+            
+            $temp1Str=readline();
+             $temp1Str=strtoupper($temp1Str);
+            // echo $temp1Str;
+            
+           $s->checkCommonString($temp1Str);
+
+            
+
+?>

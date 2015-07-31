@@ -1,0 +1,69 @@
+<?php
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+      $numberOfTest=0;$value1=0;$sum=0;$count=0;
+
+         $list=array(); 
+  
+        $temp1Str;$temp;
+        
+        $numberOfTest=readline("enter number of test cases");
+        
+     
+        for($i=0;$i<$numberOfTest;$i++)
+         {
+            $list[$i]=readline();
+          
+            
+        } 
+        $countStr1=array(array());
+        for($j=0;$j<$numberOfTest;$j++)
+                {    
+                    for($k=0;$k<26;$k++)
+                        {
+                          $countStr1[$j][$k]=0;     
+                        }
+                }
+
+
+    
+        for($i=0;$i<$numberOfTest;$i++)
+        {
+           
+            $temp1Str=$list[$i];
+            
+              
+            for($j=0;$j<strlen($temp1Str);$j++)
+                {      
+                
+               
+                        $value1=ord($temp1Str[$j])-97;
+                       
+                        $countStr1[$i][$value1]++;     
+                } 
+               
+        }
+
+      for($j=0;$j<26;$j++)
+                {          
+                $sum=$numberOfTest;
+                for($k=0;$k<$numberOfTest;$k++)
+                {     
+                    if($countStr1[$k][$j]>0)
+                        {
+                       
+                             $sum--;                       
+                        }
+                }
+                if($sum==0)
+                    {
+                    $count++;
+                    
+                    } 
+                }
+        
+        echo $count;
+
+
+
+?>
