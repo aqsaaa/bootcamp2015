@@ -1,0 +1,73 @@
+<?php
+    class solution{
+     public function getCount($start,$end)
+         {
+         
+         $temp=0;
+          $start=$start+1;
+          $end=$end-1;
+         while($start<=$end)
+          {
+            $start=$start+2;
+             if($start<=$end)
+            $temp++;
+          }         
+           return  $temp;
+         }
+}
+    
+    
+    
+$_fp = fopen("php://stdin", "r");
+/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+     $input=readline();
+     $snipers=readline();
+    
+     $count=0;$value=0;
+     $array = explode(" ", $input);
+     $pieces =explode(" ", $snipers);
+
+     $length=count($pieces);
+     $count=$array[1];
+    
+      sort($pieces);
+       $obj=new solution();       
+       
+  
+
+      $temp=$pieces[0];
+     while($temp>=1)
+     {
+         $temp=$temp-2;
+         if($temp>=1)
+         {
+             $count++;
+         }
+     }
+
+      
+      $temp=$pieces[$length-1];
+
+    while($temp<=$array[0])
+     {
+         $temp=$temp+2;
+         if($temp<=$array[0])
+         {
+             $count++;
+         }
+     }
+
+
+     
+
+      for($i=0;$i<$length-1;$i++)
+     {
+          
+         $value= $obj->getCount($pieces[$i],$pieces[$i+1]);
+         
+         $count=$count+$value;
+     }
+    
+       echo $count;
+
+?>
