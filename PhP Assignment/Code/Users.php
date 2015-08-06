@@ -18,7 +18,7 @@ public function __construct()
 
 #Db admin with userType 31
  $this->users[2][0]=3;
- $this->users[2][1]="Muhammad Ali";
+ $this->users[2][1]="ali";
  $this->users[2][2]=31;
  $this->users[2][3]="ali123";
 
@@ -32,7 +32,7 @@ public function __construct()
 
 
  $this->users[4][0]=5;
- $this->users[4][1]="waqas Javaid";
+ $this->users[4][1]="waqas";
  $this->users[4][2]=21;
  $this->users[4][3]="waqas123";
 
@@ -59,6 +59,21 @@ public function __construct()
    }
     return $status;
  } 
+
+
+    public function addUser($userName,$password,$userType)
+   {
+         $status=false;
+         $count=count($this->users);
+         $this->users[$count][0]=$count+1;
+         $this->users[$count][1]=$userName;
+         $this->users[$count][2]=$userType;
+         $this->users[$count][3]=$password;
+        $status=true;
+     return $status;
+
+   } 
+
 
 
 }
