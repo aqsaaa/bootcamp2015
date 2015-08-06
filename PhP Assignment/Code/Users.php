@@ -74,7 +74,7 @@ public function __construct()
 
    } 
 
-   public function DisplayUsers($userName,$password,$userType)
+   public function DisplayUsers()
    {
 
              echo "Id\t"."Name\t"."Password\t"."UserType\t\n";  
@@ -85,6 +85,27 @@ public function __construct()
               }
 
    } 
+    public function ChangePassword($userName,$password)
+   {
+
+          $status=false;    
+            for($i=0;$i<count($this->users);$i++)
+              {
+
+                if($this->users[$i][1]==$userName)
+                {
+                   $this->users[$i][3]=$password;
+                   $status=true;
+                   break;
+                }  
+  
+
+              }
+        return $status;
+
+   } 
+
+   
 
 
 
