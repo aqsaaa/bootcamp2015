@@ -1,5 +1,7 @@
 <?php
 include("Users.php");
+while(true)
+{
 echo "*****Board Of Intermediate & Secondary Education, Lahore*****\n \n";
 
 echo "press 01 for Student \n";
@@ -134,12 +136,15 @@ switch($input)
                        $st=$obj->addUser($userName,$password,$userType);
                         if($st)
                           {
-                             echo "User Added :) ";
+                             echo "User Added :) \n";
+                             echo "Updated Data Base\n";
+                              $obj->DisplayUsers();   
                           }
                      break;
               case 2:
                      break;
               case 3 :
+                         $obj->DisplayUsers();
                      break;
               default:
                   break;
@@ -162,7 +167,7 @@ switch($input)
 
 
 
-
+}
 
 
 ?>

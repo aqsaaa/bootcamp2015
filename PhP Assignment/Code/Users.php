@@ -74,6 +74,18 @@ public function __construct()
 
    } 
 
+   public function DisplayUsers($userName,$password,$userType)
+   {
+
+             echo "Id\t"."Name\t"."Password\t"."UserType\t\n";  
+            for($i=0;$i<count($this->users);$i++)
+              {
+
+                echo $this->users[$i][0]."\t".$this->users[$i][1]."\t".$this->users[$i][3]."\t".$this->users[$i][2]."\t\n";     
+              }
+
+   } 
+
 
 
 }
