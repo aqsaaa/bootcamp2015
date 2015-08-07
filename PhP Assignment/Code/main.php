@@ -1,30 +1,36 @@
 <?php
 include("Users.php");
+include("Result.php");
+$obj=new User();
+$std= new StdResult();   
+    
 while(true)
 {
+$status=false;
+$attempts=3;
     echo "*****Board Of Intermediate & Secondary Education, Lahore*****\n \n";
 
     echo "press 01 for Student \n";
     echo "press 11 for internee\n";
     echo "press 21 for data entry operator\n";
     echo "press 31 for data Base admin\n";
+    echo "press 41 to exit\n";
     $input=readline();
 
 #object for all login
-    $obj=new User();
-    $status=false;
-    $attempts=3;
+   
     switch($input)
     {
 	case 01:
+	      $rollnumber;
 	    do
 	    {
 		echo "Enter student Roll Number \n";
 		$rollnumber=readline();
-	    }while($rollnumbe>=5);
-	    $stdResult=new  StudentResult();
-	    $stdResult->getResult($rollnumber);
-# here we will get the result
+	    }while($rollnumber>4);
+
+	       $std->DisplayResult($rollnumber);
+
 	    break;
 	case 11:
 	    echo "\n Hello Internee :)\n ";
@@ -54,7 +60,7 @@ while(true)
 	    }
 	    break;
 	case 21:
-	    echo "\nWellcome to Data Entry Panel :)  ";
+	    echo "\nWellcome to Data Entry Panel :) \n ";
 	    echo " please enter your name & password to continue \n ";
 	    while($attempts!=0 && $status==false)
 	    {
@@ -86,7 +92,7 @@ while(true)
 
 	    break;
 	case 31:
-	    echo "\nWellcome to DB Admin Panel :)  ";
+	    echo "\nWellcome to DB Admin Panel :)  \n";
 	    echo " please enter your name & password to continue \n ";
 	    while($attempts!=0 && $status==false)
 	    {
@@ -193,7 +199,9 @@ while(true)
 
 	    }
 	    break;
-
+         case 41:
+                  $wrong->funct();
+                   break;
 	default:
 	    echo "Wrong Choice";
 	    break;

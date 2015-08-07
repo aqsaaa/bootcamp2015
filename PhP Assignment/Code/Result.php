@@ -4,8 +4,8 @@ class Result{
    public $rollNum;
    public $Name;
    public $fatherName;
-   public $TotalMarks;
-   public $subjectmarks=array();
+   public $Total;
+   public $totalMarks=array();
    public $marks=array();
 
     
@@ -22,46 +22,83 @@ public function __construct()
      $temp->rollNum=1; 
      $temp->fatherName="waqar";
      $temp->TotalMarks=901;
-     $temp->marks[]=90;
-     $temp->marks[]=96;
-     $temp->marks[]=70;
-     $temp->marks[]=87;
-     $temp->marks[]=79;
+     $temp->marks[0]=90;
+     $temp->marks[1]=96;
+     $temp->marks[2]=70;
+     $temp->marks[3]=87;
+     $temp->marks[4]=79;
 
-     $result[0]=$temp;
+     $this->result[0]=$temp;
      
      $temp->Name="ramsha";
      $temp->rollNum=2; 
      $temp->fatherName="jahangir";
      $temp->TotalMarks=892;
-     $temp->marks[]=76;
-     $temp->marks[]=56;
-     $temp->marks[]=80;
-     $temp->marks[]=87;
-     $temp->marks[]=95;
-     $result[1]=$temp;
+     $temp->marks[0]=76;
+     $temp->marks[1]=56;
+     $temp->marks[2]=80;
+     $temp->marks[3]=87;
+     $temp->marks[4]=95;
+    $this->result[1]=$temp;
 
      $temp->Name="mustaeen";
      $temp->rollNum=3; 
      $temp->fatherName="basit zaki";
      $temp->TotalMarks=802;
-      $temp->marks[]=87;
-     $temp->marks[]=76;
-     $temp->marks[]=77;
-     $temp->marks[]=67;
-     $temp->marks[]=89;
-     $result[2]=$temp;
+      $temp->marks[0]=87;
+     $temp->marks[1]=76;
+     $temp->marks[2]=77;
+     $temp->marks[3]=67;
+     $temp->marks[4]=89;
+     $this->result[2]=$temp;
  
     $temp->Name="ayesha";
      $temp->rollNum=4; 
      $temp->fatherName="akhtar";
      $temp->TotalMarks=782;
-      $temp->marks[]=64;
-     $temp->marks[]=76;
-     $temp->marks[]=87;
-     $temp->marks[]=57;
-     $temp->marks[]=79;
-    $result[3]=$temp;
+      $temp->marks[0]=64;
+     $temp->marks[1]=76;
+     $temp->marks[2]=87;
+     $temp->marks[3]=57;
+     $temp->marks[4]=79;
+
+    $this->result[3]=$temp;
+
+}
+ public function DisplayResult($id)
+{
+    $temp=new Result();
+ for($i=0;$i<count($this->result);$i++)
+{   
+     $temp=$this->result[$i];
+     echo "temp rollnumber :\t ".$temp->rollNum."with id :\t".$id."\n";
+    if($temp->rollNum==$id)
+    {
+
+        echo "Student RollNumber:\t ".$temp->rollNum."\n";
+        echo "Student Name:\t ".$temp->Name."\n";
+        echo "Father Name:\t ".$temp->fatherName."\n";
+
+        echo "Subject\t"."Total Marks\t"."Obtained\n";
+     
+                  echo "Science \t"."100\t".$temp->marks[0]."\t\n";
+                  echo "Maths \t"."100\t".$temp->marks[1]."\t\n";
+                  echo "English \t"."100\t".$temp->marks[2]."\t\n";
+                  echo "Urdu \t"."100\t".$temp->marks[3]."\t\n";
+                  echo "Pak Study \t"."100\t".$temp->marks[4]."\t\n";
+        break;
+
+    }
+
+
+}
+
+
+}
+public function DisplayAllResults()
+{
+
+
 
 }
 
