@@ -88,7 +88,7 @@ public function __construct()
                   echo "English    \t"."100\t".$temp->marks[2]."\t\n";
                   echo "Islamyat   \t"."100\t".$temp->marks[3]."\t\n";
                   echo "PakStudy   \t"."100\t".$temp->marks[4]."\t\n";
-       echo $temp->Name."  obtained ".$temp->TotalMarks." out of 500";
+       echo $temp->Name."  obtained ".$temp->TotalMarks." marks out of 500";
         break;
 
     }
@@ -96,6 +96,27 @@ public function __construct()
 
 }
 
+
+}
+ public function ChangeName($id,$name)
+{
+   $s=false;
+    $temp=new Result();
+ for($i=0;$i<count($this->result);$i++)
+{   
+     $temp=$this->result[$i];
+    if($temp->rollNum==$id)
+    {
+        $s=true;
+       $temp->Name=$name;
+      $this->result[$i]=$temp;
+        break;
+
+    }
+
+
+}
+ return $s;
 
 }
 public function DisplayAllResults()
@@ -106,7 +127,7 @@ for($i=0;$i<count($this->result);$i++)
      $temp=$this->result[$i];
      
     
-        echo "Student RollNumber:\t ".$temp->rollNo."\n";
+        echo "Student RollNumber:\t ".$temp->rollNum."\n";
         echo "Student Name:\t ".$temp->Name."\n";
         echo "Father Name:\t ".$temp->fatherName."\n";
         echo "Subject\t"."Total Marks\t"."Obtained\n";   
@@ -115,7 +136,7 @@ for($i=0;$i<count($this->result);$i++)
                   echo "English   \t"."100\t".$temp->marks[2]."\t\n";
                   echo "Islamyat  \t"."100\t".$temp->marks[3]."\t\n";
                   echo "PakStudy  \t"."100\t".$temp->marks[4]."\t\n"; 
-        echo $temp->Name."  obtained ".$temp->TotalMarks." out of 500";
+        echo $temp->Name."  obtained ".$temp->TotalMarks." marks  out of 500";
         echo "\n\n\n";
    $temp=new Result();
 

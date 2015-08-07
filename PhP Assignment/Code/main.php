@@ -8,6 +8,7 @@ while(true)
 {
 $status=false;
 $attempts=3;
+$userName;
     echo "*****Board Of Intermediate & Secondary Education, Lahore*****\n \n";
 
     echo "press 01 for Student \n";
@@ -56,7 +57,84 @@ $attempts=3;
 
 	    if($status==true)
 	    {
-		echo "here show remaining tasks of internee";
+		
+                echo "press 1 to Edit Student Info \n";
+		echo "press 2 to change its password\n";
+		echo "press 3 to show Student Result Records \n";
+                echo "press 4 to add Data Entry Operator \n";
+		$input1=readline();
+		switch($input1)
+		{
+		    case 1:
+
+                              $rollno;$nam;
+	    do
+	    {
+		echo "Enter student Roll Number \n";
+		$rollno=readline();
+	    }while($rollno>4);
+                               do{
+				    echo "Set Name :\n ";     
+				    $nam=readline();
+				}while($nam==null);
+
+                             $s= $std->ChangeName($rollno,$nam);
+                                if($s)
+                                   { 
+                                       echo "Name Changed \n";
+                                       echo "Updated Data Base\n";
+                                       $std->DisplayResult($rollno);
+                                   }
+                     break;
+                    case 2:
+				do{
+				    echo "Set Password :\n ";     
+				    $password=readline();
+				}while($password==null);
+
+				$st1=$obj->ChangePassword($userName,$password);  
+				if($st1)
+				{
+				    echo "Password changed :) \n";
+				    echo "Updated Data Base\n";
+				    $obj->DisplayUsers();   
+				}
+
+
+                    break;
+                     case 3:
+                         
+                           $std->DisplayAllResults();
+                    break;
+                     case 4:
+                        do{
+			    echo "Set UserName :\n ";
+			    $userName=readline();
+#check username availability
+			}while($userName==null);
+
+			do{
+			    echo "Set Password :\n ";     
+			    $password=readline();
+			}while($password==null);
+
+			$st=$obj->addUser($userName,$password,21);
+			if($st)
+			{
+			    echo "Data Entry Operator Added :) \n";
+			    echo "Updated Data Base\n";
+			    $obj->DisplayUsers();   
+			}
+
+
+
+                    break;
+                     default:
+                         echo "Wrong choice :( ";
+                      break;
+                }
+
+
 	    }
 	    break;
 	case 21:
@@ -115,7 +193,7 @@ $attempts=3;
 
 	    if($status==true)
 	    {
-		echo "press 1 to Add user \n";
+		echo "press 1 to Add user(Internee or Data Entry Operator) \n";
 		echo "press 2 to Edit Database\n";
 		echo "press 3 to show Db Records \n";
 		$input=readline();
