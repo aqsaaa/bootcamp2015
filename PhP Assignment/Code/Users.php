@@ -4,7 +4,6 @@ public $users=array(array());
  #internee with userType=11
 public function __construct()
 {
-#echo "function Load Data";
  $this->users[0][0]=1;
  $this->users[0][1]="aqsa";
  $this->users[0][2]=11;
@@ -38,22 +37,18 @@ public function __construct()
 
 }
 
- public function getCount()
- {
-   #echo "count is ".count($this->users); 
+ public function getCount() {
   return count($this->users);
  }
  
- public function SignIn($userName,$password)
- {
-    $status=false;
+ public function SignIn($userName,$password) {
+   $status=false;
    for($i=0;$i<count($this->users);$i++)
    {
-      if($userName==$this->users[$i][1] && $password==$this->users[$i][3])
-	     {
-	       $status=true;
-                break;
-              }     
+      if($userName==$this->users[$i][1] && $password==$this->users[$i][3]) {
+	   $status=true;
+	    break;
+      }     
      
 
    }
@@ -110,17 +105,5 @@ public function __construct()
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
