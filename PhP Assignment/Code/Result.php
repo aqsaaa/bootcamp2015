@@ -29,7 +29,8 @@ public function __construct()
      $temp->marks[4]=79;
 
      $this->result[0]=$temp;
-     
+
+     $temp=new Result();
      $temp->Name="ramsha";
      $temp->rollNum=2; 
      $temp->fatherName="jahangir";
@@ -41,6 +42,7 @@ public function __construct()
      $temp->marks[4]=95;
     $this->result[1]=$temp;
 
+     $temp=new Result();
      $temp->Name="mustaeen";
      $temp->rollNum=3; 
      $temp->fatherName="basit zaki";
@@ -52,6 +54,7 @@ public function __construct()
      $temp->marks[4]=89;
      $this->result[2]=$temp;
  
+    $temp=new Result();
     $temp->Name="ayesha";
      $temp->rollNum=4; 
      $temp->fatherName="akhtar";
@@ -71,7 +74,6 @@ public function __construct()
  for($i=0;$i<count($this->result);$i++)
 {   
      $temp=$this->result[$i];
-     echo "temp rollnumber :\t ".$temp->rollNum."with id :\t".$id."\n";
     if($temp->rollNum==$id)
     {
 
@@ -81,11 +83,12 @@ public function __construct()
 
         echo "Subject\t"."Total Marks\t"."Obtained\n";
      
-                  echo "Science \t"."100\t".$temp->marks[0]."\t\n";
-                  echo "Maths \t"."100\t".$temp->marks[1]."\t\n";
-                  echo "English \t"."100\t".$temp->marks[2]."\t\n";
-                  echo "Urdu \t"."100\t".$temp->marks[3]."\t\n";
-                  echo "Pak Study \t"."100\t".$temp->marks[4]."\t\n";
+                  echo "Science    \t"."100\t".$temp->marks[0]."\t\n";
+                  echo "Mathmatics \t"."100\t".$temp->marks[1]."\t\n";
+                  echo "English    \t"."100\t".$temp->marks[2]."\t\n";
+                  echo "Islamyat   \t"."100\t".$temp->marks[3]."\t\n";
+                  echo "PakStudy   \t"."100\t".$temp->marks[4]."\t\n";
+       echo $temp->Name."  obtained ".$temp->TotalMarks." out of 500";
         break;
 
     }
@@ -97,7 +100,26 @@ public function __construct()
 }
 public function DisplayAllResults()
 {
+$temp=new Result();
+for($i=0;$i<count($this->result);$i++)
+{   
+     $temp=$this->result[$i];
+     
+    
+        echo "Student RollNumber:\t ".$temp->rollNo."\n";
+        echo "Student Name:\t ".$temp->Name."\n";
+        echo "Father Name:\t ".$temp->fatherName."\n";
+        echo "Subject\t"."Total Marks\t"."Obtained\n";   
+                  echo "Science   \t"."100\t".$temp->marks[0]."\t\n";
+                  echo "Mathmatics\t"."100\t".$temp->marks[1]."\t\n";
+                  echo "English   \t"."100\t".$temp->marks[2]."\t\n";
+                  echo "Islamyat  \t"."100\t".$temp->marks[3]."\t\n";
+                  echo "PakStudy  \t"."100\t".$temp->marks[4]."\t\n"; 
+        echo $temp->Name."  obtained ".$temp->TotalMarks." out of 500";
+        echo "\n\n\n";
+   $temp=new Result();
 
+}
 
 
 }

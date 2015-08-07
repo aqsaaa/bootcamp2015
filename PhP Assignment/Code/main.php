@@ -117,7 +117,7 @@ $attempts=3;
 	    {
 		echo "press 1 to Add user \n";
 		echo "press 2 to Edit Database\n";
-		echo "press 3 to show User Record \n";
+		echo "press 3 to show Db Records \n";
 		$input=readline();
 		switch($input)
 		{
@@ -159,7 +159,7 @@ $attempts=3;
 			    case 1:
 
 				do{
-				    echo "enter Username for Reseting its password";
+				    echo "enter Username for Reseting its password \n";
 				    $userName=readline();
 #check username availability
 				}while($userName==null);
@@ -168,13 +168,12 @@ $attempts=3;
 				    $password=readline();
 				}while($password==null);
 
-
-				$st=$obj->ChangePassword($userName,$password);  
-				if($st)
+				$st1=$obj->ChangePassword($userName,$password);  
+				if($st1)
 				{
 				    echo "Password changed :) \n";
 				    echo "Updated Data Base\n";
-				    $st=$obj->DisplayUsers();   
+				    $obj->DisplayUsers();   
 				}
 
 				break;
@@ -189,7 +188,22 @@ $attempts=3;
 
 			break;
 		    case 3 :
-			$obj->DisplayUsers();
+
+                        echo "press 1 for viewing User Records \n";
+			echo "press 2 for viewing Student Result Records\n";
+			$input=readline();
+			switch($input)
+			{
+			    case 1:
+                                   $obj->DisplayUsers();
+                                   break;
+                           case 2:
+                                   $std->DisplayAllResults();
+                                   break;
+                             default:
+                                   echo "wrong choice";
+                                   break;
+                        }
 			break;
 		    default:
 			break;
