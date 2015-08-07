@@ -146,6 +146,16 @@ for($i=0;$i<count($this->result);$i++)
 }
 
 
+public function AddResult($temp)
+{
+   $st=false;
+    $this->result[]=$temp;
+     $st=true;
+  return $st;
+    
+}
+
+
 }
 
 

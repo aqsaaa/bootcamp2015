@@ -130,7 +130,7 @@ $userName;
 
                     break;
                      default:
-                         echo "Wrong choice :( ";
+                         echo "Wrong choice :(\n";
                       break;
                 }
 
@@ -165,7 +165,34 @@ $userName;
 	    }
 	    if($status==true)
 	    {
-		echo "here show remaining tasks of internee";
+               #validation of rollnumber
+                $temp=new Result();
+		echo "\nenter student rollno: ";
+                $temp->rollNum=readline();
+                echo "\nenter student name: ";
+                $temp->Name=readline();
+                echo "\nenter student Fathername: ";
+                $temp->fatherName=readline();
+                echo "\n Now Enter Suject Marks \n";
+                
+                echo "\nenter  Science marks : ";
+                $temp->marks[0]=readline();
+                echo "\nenter  Mathamatics: ";
+                 $temp->marks[1]=readline();
+                echo "\nenter English marks: ";
+                  $temp->marks[2]=readline();
+                echo "\nenter Islamyat marks: ";
+                   $temp->marks[3]=readline();
+                echo "\nenter Pak study marks: ";
+                    $temp->marks[4]=readline();
+                echo "\nenter student Total marks: ";
+                    $temp->TotalMarks=readline();    
+                     $stt=$std->AddResult($temp);
+                    if($stt)
+                     {
+                         echo " \nStudent Result Added :) \n";
+                         $std->DisplayResult($temp->rollNum);
+                     }
 	    }
 
 	    break;
